@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.totalPrice = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // totalPrice
+            // 
+            this.totalPrice.Location = new System.Drawing.Point(177, 134);
+            this.totalPrice.Name = "totalPrice";
+            this.totalPrice.Size = new System.Drawing.Size(100, 23);
+            this.totalPrice.TabIndex = 0;
+            this.totalPrice.Text = "label1";
+            this.totalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Controls.Add(this.totalPrice);
             this.Name = "DisplayQuote";
             this.Text = "DisplayQuote";
             this.ResumeLayout(false);
@@ -42,5 +53,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Label totalPrice;
     }
 }

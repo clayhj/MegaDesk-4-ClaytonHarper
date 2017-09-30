@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_3_ClaytonHarper
 {
-    class Desk
+    public class Desk
     {
         private int width = 0;
         private int depth = 0;
         private int drawers = 0;
-        private string material;
+        private string material = "";
 
         public enum Material
         {
@@ -66,9 +66,10 @@ namespace MegaDesk_3_ClaytonHarper
             }
         }
 
-        public int Size()
+        public int DeskSize()
         {
-            return width* depth;
+            int size = this.width * this.depth;
+            return size;
         }
 
     }

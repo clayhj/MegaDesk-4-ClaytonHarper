@@ -13,6 +13,7 @@ namespace MegaDesk_3_ClaytonHarper
     public partial class AddQuote : Form
     {
 
+
         public AddQuote()
         {
             InitializeComponent();
@@ -33,9 +34,11 @@ namespace MegaDesk_3_ClaytonHarper
 
         private void getQuoteButton_Click(object sender, EventArgs e)
         {
-            DisplayQuote displayQuoteForm = new DisplayQuote();
+            Desk desk = new Desk((int)deskWidth.Value, (int)deskDepth.Value, (int)numberOfDrawers.Value, deskMaterial.Text);
+            DeskQuote deskQuote = new DeskQuote();
+            deskQuote.CustomerName = customerName.ToString(); 
+            DisplayQuote displayQuoteForm = new DisplayQuote(this);
             displayQuoteForm.Show();
-            this.Hide();
         }
     }
 }

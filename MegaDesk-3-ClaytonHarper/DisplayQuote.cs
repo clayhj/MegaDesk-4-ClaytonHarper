@@ -12,9 +12,12 @@ namespace MegaDesk_3_ClaytonHarper
 {
     public partial class DisplayQuote : Form
     {
-        public DisplayQuote()
+        AddQuote ownerForm = null;
+        public DisplayQuote(AddQuote ownerForm)
         {
             InitializeComponent();
+            this.ownerForm = ownerForm;
+            DeskQuote deskQuote = new DeskQuote();
         }
     }
 }
