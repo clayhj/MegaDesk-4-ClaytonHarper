@@ -11,7 +11,7 @@ namespace MegaDesk_3_ClaytonHarper
         private int width = 0;
         private int depth = 0;
         private int drawers = 0;
-        private string material = "";
+        private string deskMaterial = "";
 
         public enum Material
         {
@@ -22,13 +22,7 @@ namespace MegaDesk_3_ClaytonHarper
             Pine,
         };
 
-        public Desk(int width, int depth, int drawers, string material)
-        {
-            this.width = width;
-            this.depth = depth;
-            this.drawers = drawers;
-            this.material = material;
-        }
+        public string DeskMaterial { get; set; }
 
         public int Width
         {

@@ -24,5 +24,28 @@ namespace MegaDesk_3_ClaytonHarper
             this.Hide();
 
         }
+
+        
+
+        private void viewQuotesButton_Click(object sender, EventArgs e)
+        {
+            ViewAllQuotes addViewQuoteForm = new ViewAllQuotes();
+            addViewQuoteForm.Show();
+            this.Hide();
+        }
+
+
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void searchQuotesButton_Click(object sender, EventArgs e)
+        {
+            SearchQuotes addSearchQuoteForm = new SearchQuotes();
+            addSearchQuoteForm.Show();
+            this.Hide();
+        }
     }
 }
