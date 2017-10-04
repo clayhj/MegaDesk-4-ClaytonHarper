@@ -22,9 +22,9 @@ namespace MegaDesk_3_ClaytonHarper
         private void searchQuotesButton_Click(object sender, EventArgs e)
         {
 
-            quoteResults.Visible = true;
-
             string path = "C:\\Users\\clayh\\Desktop\\CIT365\\quotes.txt";
+
+            searchQuotesTable.Rows.Clear();
 
             try
             {
@@ -32,21 +32,26 @@ namespace MegaDesk_3_ClaytonHarper
                 {
                     while (!sr.EndOfStream)
                     {
-                        var quote = sr.ReadLine();
-                        if (quote.Contains(materialSearch.SelectedItem.ToString()))
+                        string[] quotes = sr.ReadLine().Split(',');
+                        if (quotes.Contains(materialSearch.Text))
                         {
-                            quoteResults.Text = quote; 
+                            searchQuotesTable.Rows.Add(quotes[0], quotes[1], quotes[2], quotes[3], quotes[4], quotes[5], quotes[6]);
+                            searchError.Visible = false;
+                        }
+                        else
+                        {
+                            searchError.Visible = true;
+                            searchError.Text = "No Matches";
                         }
 
                     }
                 }
             }
-            catch (FileNotFoundException exception)
+            catch (FileNotFoundException)
             {
-                quoteResults.Text = "There are no quotes yet";
+                searchError.Visible = true;
+                searchError.Text = "There are no quotes yet";
             }
-
-            mainMenuButton.Visible = true;
 
         }
 

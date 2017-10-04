@@ -47,6 +47,8 @@
             this.dayLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.errorName = new System.Windows.Forms.Label();
+            this.mainMenuButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.deskWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deskDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfDrawers)).BeginInit();
@@ -247,7 +249,7 @@
             // 
             // getQuoteButton
             // 
-            this.getQuoteButton.Location = new System.Drawing.Point(155, 319);
+            this.getQuoteButton.Location = new System.Drawing.Point(90, 319);
             this.getQuoteButton.Name = "getQuoteButton";
             this.getQuoteButton.Size = new System.Drawing.Size(120, 30);
             this.getQuoteButton.TabIndex = 15;
@@ -283,11 +285,33 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "inches";
             // 
+            // errorName
+            // 
+            this.errorName.AutoSize = true;
+            this.errorName.Location = new System.Drawing.Point(311, 75);
+            this.errorName.Name = "errorName";
+            this.errorName.Size = new System.Drawing.Size(64, 13);
+            this.errorName.TabIndex = 19;
+            this.errorName.Text = "Verify Name";
+            this.errorName.Visible = false;
+            // 
+            // mainMenuButton
+            // 
+            this.mainMenuButton.Location = new System.Drawing.Point(216, 319);
+            this.mainMenuButton.Name = "mainMenuButton";
+            this.mainMenuButton.Size = new System.Drawing.Size(120, 30);
+            this.mainMenuButton.TabIndex = 28;
+            this.mainMenuButton.Text = "Main Menu";
+            this.mainMenuButton.UseVisualStyleBackColor = true;
+            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Controls.Add(this.mainMenuButton);
+            this.Controls.Add(this.errorName);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dayLabel);
@@ -339,5 +363,7 @@
         private System.Windows.Forms.Label dayLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label errorName;
+        private System.Windows.Forms.Button mainMenuButton;
     }
 }

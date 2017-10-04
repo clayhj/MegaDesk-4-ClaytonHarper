@@ -21,12 +21,18 @@ namespace MegaDesk_3_ClaytonHarper
             {
                 using (StreamReader sr = new StreamReader(path))
                 {
-                    displayQuotes.Text = sr.ReadToEnd();
+                    while (!sr.EndOfStream)
+                    {
+                        string[] quotes = sr.ReadLine().Split(',');
+                        displayQuotesTable.Rows.Add(quotes[0], quotes[1], quotes[2], quotes[3], quotes[4], quotes[5], quotes[6]);
+
+                    }
                 }
             }
             catch (FileNotFoundException e)
             {
-                displayQuotes.Text = "There are no quotes yet";
+                displayError.Visible = true;
+                displayError.Text = "There are no quotes yet";
             }
         }
 

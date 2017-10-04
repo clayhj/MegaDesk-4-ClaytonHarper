@@ -92,9 +92,9 @@
             this.labelRushOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRushOrder.Location = new System.Drawing.Point(12, 229);
             this.labelRushOrder.Name = "labelRushOrder";
-            this.labelRushOrder.Size = new System.Drawing.Size(86, 17);
+            this.labelRushOrder.Size = new System.Drawing.Size(63, 17);
             this.labelRushOrder.TabIndex = 16;
-            this.labelRushOrder.Text = "Rush Order:";
+            this.labelRushOrder.Text = "Delivery:";
             // 
             // labelMaterial
             // 
@@ -172,7 +172,7 @@
             // 
             // saveQuoteButton
             // 
-            this.saveQuoteButton.Location = new System.Drawing.Point(156, 301);
+            this.saveQuoteButton.Location = new System.Drawing.Point(97, 301);
             this.saveQuoteButton.Name = "saveQuoteButton";
             this.saveQuoteButton.Size = new System.Drawing.Size(120, 30);
             this.saveQuoteButton.TabIndex = 25;
@@ -183,7 +183,7 @@
             // quoteDate
             // 
             this.quoteDate.AutoSize = true;
-            this.quoteDate.Location = new System.Drawing.Point(168, 339);
+            this.quoteDate.Location = new System.Drawing.Point(94, 339);
             this.quoteDate.Name = "quoteDate";
             this.quoteDate.Size = new System.Drawing.Size(60, 13);
             this.quoteDate.TabIndex = 26;
@@ -192,13 +192,12 @@
             // 
             // mainMenuButton
             // 
-            this.mainMenuButton.Location = new System.Drawing.Point(282, 301);
+            this.mainMenuButton.Location = new System.Drawing.Point(223, 301);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(120, 30);
             this.mainMenuButton.TabIndex = 27;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
-            this.mainMenuButton.Visible = false;
             this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
             // 
             // DisplayQuote

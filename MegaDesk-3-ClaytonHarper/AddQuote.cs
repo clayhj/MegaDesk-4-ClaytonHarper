@@ -36,23 +36,44 @@ namespace MegaDesk_3_ClaytonHarper
 
         private void getQuoteButton_Click(object sender, EventArgs e)
         {
-            Desk desk = new Desk();
-            desk.Width = (int)deskWidth.Value;
-            desk.Depth = (int)deskDepth.Value;
-            desk.Drawers = (int)numberOfDrawers.Value;
-            desk.DeskMaterial = deskMaterial.SelectedItem.ToString();
-            DeskQuote deskQuote = new DeskQuote(desk);
-            deskQuote.CustomerName = customerName.Text;
-            deskQuote.QuoteDate = DateTime.Now;
-
-            if (rushOrderCheck.Checked == true)
+            if (customerName.Text.Contains(',') || String.IsNullOrEmpty(customerName.Text))
             {
-                deskQuote.RushOrder = (int)rushNumberOfDays.Value;
+                customerName.BackColor = Color.Red;
+                errorName.Visible = true;
             }
+            else
+            {
+                Desk desk = new Desk();
+                desk.Width = (int)deskWidth.Value;
+                desk.Depth = (int)deskDepth.Value;
+                desk.Drawers = (int)numberOfDrawers.Value;
+                desk.DeskMaterial = deskMaterial.SelectedItem.ToString();
+                DeskQuote deskQuote = new DeskQuote(desk);
+                deskQuote.CustomerName = customerName.Text;
+                deskQuote.QuoteDate = DateTime.Now;
+
+                if (rushOrderCheck.Checked == true)
+                {
+                    deskQuote.RushOrder = (int)rushNumberOfDays.Value;
+                }
+                else
+                {
+                    deskQuote.RushOrder = 14;
+                }
 
 
-            DisplayQuote displayQuoteForm = new DisplayQuote(deskQuote, desk);
-            displayQuoteForm.Show();
+                DisplayQuote displayQuoteForm = new DisplayQuote(deskQuote, desk);
+                displayQuoteForm.Show();
+                this.Hide();
+
+            }
+            
+        }
+
+        private void mainMenuButton_Click(object sender, EventArgs e)
+        {
+            MainMenu addMainMenu = new MainMenu();
+            addMainMenu.Show();
             this.Hide();
         }
     }

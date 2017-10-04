@@ -47,7 +47,7 @@ namespace MegaDesk_3_ClaytonHarper
 
             if (size > 1000)
             {
-                pricePerInchSquared = size - 1000 * 1;
+                pricePerInchSquared = (size - 1000) * 1;
             }
             else
             {
@@ -117,11 +117,14 @@ namespace MegaDesk_3_ClaytonHarper
                         rushPrice = 30;
                     }
                     break;
+                default:
+                    rushPrice = 0;
+                    break;
             }
 
             
 
-            totalPrice = basePrice + (pricePerInchSquared) + (pricePerDrawer * drawers) + materialPrice + rushPrice;
+            totalPrice = basePrice + pricePerInchSquared + (pricePerDrawer * drawers) + materialPrice + rushPrice;
             
             return totalPrice;
         }

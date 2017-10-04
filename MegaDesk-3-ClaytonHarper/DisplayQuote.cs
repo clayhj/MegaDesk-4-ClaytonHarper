@@ -42,22 +42,19 @@ namespace MegaDesk_3_ClaytonHarper
             {
                 using (TextWriter sw = new StreamWriter(path))
                 {
-                    sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", customerName.Text,deskSize.Text,drawers.Text,deskMaterial.Text, rushOrder.Text,totalPrice.Text, quoteDate.Text);                
+                    sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", customerName.Text,deskSize.Text,drawers.Text,deskMaterial.Text, rushOrder.Text,totalPrice.Text.Replace(",",""), quoteDate.Text);                
                 }
             } else
             {
                 using (TextWriter sw = new StreamWriter(path, append: true))
                 {
-                    sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", customerName.Text, deskSize.Text, drawers.Text, deskMaterial.Text, rushOrder.Text, totalPrice.Text, quoteDate.Text);
+                    sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", customerName.Text, deskSize.Text, drawers.Text, deskMaterial.Text, rushOrder.Text, totalPrice.Text.Replace(",", ""), quoteDate.Text);
                 }
             }
 
             saveQuoteButton.Enabled = false;
 
             quoteDate.Visible = true;
-
-            mainMenuButton.Visible = true;
-            mainMenuButton.Enabled = true;
 
 
         }
