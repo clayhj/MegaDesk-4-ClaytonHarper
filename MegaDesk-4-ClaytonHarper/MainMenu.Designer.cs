@@ -94,7 +94,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::MegaDesk_3_ClaytonHarper.Properties.Resources.Desk;
+            this.pictureBox1.Image = global::MegaDesk_4_ClaytonHarper.Properties.Resources.Desk;
             this.pictureBox1.Location = new System.Drawing.Point(252, 116);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 150);

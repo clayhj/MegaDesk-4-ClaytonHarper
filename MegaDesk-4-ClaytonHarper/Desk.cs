@@ -8,10 +8,6 @@ namespace MegaDesk_3_ClaytonHarper
 {
     public class Desk
     {
-        private int width = 0;
-        private int depth = 0;
-        private int drawers = 0;
-        private string deskMaterial = "";
 
         public enum Material
         {
@@ -24,47 +20,11 @@ namespace MegaDesk_3_ClaytonHarper
 
         public string DeskMaterial { get; set; }
 
-        public int Width
-        {
-            get
-            {
-                return this.width;
-            }
-            set
-            {
-                this.width = value;
-            }
-        }
+        public int Width { get; set; }
 
-        public int Depth
-        {
-            get
-            {
-                return this.depth;
-            }
-            set
-            {
-                this.depth = value;
-            }
-        }
+        public int Depth { get; set; }
 
-        public int Drawers
-        {
-            get
-            {
-                return this.drawers;
-            }
-            set
-            {
-                this.drawers = value;
-            }
-        }
-
-        public int DeskSize()
-        {
-            int size = this.width * this.depth;
-            return size;
-        }
+        public int Drawers { get; set; }
 
     }
 }

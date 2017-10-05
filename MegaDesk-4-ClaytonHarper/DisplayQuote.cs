@@ -21,7 +21,7 @@ namespace MegaDesk_3_ClaytonHarper
 
             InitializeComponent();
             customerName.Text = deskQuote.CustomerName;
-            deskSize.Text = desk.DeskSize().ToString();
+            deskSize.Text = deskQuote.DeskSize().ToString();
             drawers.Text = desk.Drawers.ToString();
             deskMaterial.Text = desk.DeskMaterial;
             rushOrder.Text = deskQuote.RushOrder.ToString();
@@ -36,7 +36,7 @@ namespace MegaDesk_3_ClaytonHarper
 
             quoteDate.Text = DateTime.Now.ToString();
 
-            string path = "C:\\Users\\clayh\\Desktop\\CIT365\\quotes.txt";
+            string path = "quotes.txt";
 
             if (!File.Exists(path))
             {

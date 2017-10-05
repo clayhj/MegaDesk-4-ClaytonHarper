@@ -22,7 +22,7 @@ namespace MegaDesk_3_ClaytonHarper
         private void searchQuotesButton_Click(object sender, EventArgs e)
         {
 
-            string path = "C:\\Users\\clayh\\Desktop\\CIT365\\quotes.txt";
+            string path = "quotes.txt";
 
             searchQuotesTable.Rows.Clear();
 

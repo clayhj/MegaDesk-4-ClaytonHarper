@@ -15,7 +15,7 @@ namespace MegaDesk_3_ClaytonHarper
     {
         public ViewAllQuotes()
         {
-            string path = "C:\\Users\\clayh\\Desktop\\CIT365\\quotes.txt";
+            string path = "quotes.txt";
             InitializeComponent();
             try
             {
@@ -29,7 +29,7 @@ namespace MegaDesk_3_ClaytonHarper
                     }
                 }
             }
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException)
             {
                 displayError.Visible = true;
                 displayError.Text = "There are no quotes yet";

@@ -74,6 +74,7 @@
             // 
             // displayQuotesTable
             // 
+            this.displayQuotesTable.AllowUserToAddRows = false;
             this.displayQuotesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.displayQuotesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customerName,
@@ -85,6 +86,7 @@
             this.quoteDate});
             this.displayQuotesTable.Location = new System.Drawing.Point(12, 124);
             this.displayQuotesTable.Name = "displayQuotesTable";
+            this.displayQuotesTable.ReadOnly = true;
             this.displayQuotesTable.Size = new System.Drawing.Size(810, 475);
             this.displayQuotesTable.TabIndex = 29;
             // 
@@ -118,6 +120,7 @@
             // 
             this.rushOrder.HeaderText = "Delivery";
             this.rushOrder.Name = "rushOrder";
+            this.rushOrder.ReadOnly = true;
             // 
             // totalPrice
             // 

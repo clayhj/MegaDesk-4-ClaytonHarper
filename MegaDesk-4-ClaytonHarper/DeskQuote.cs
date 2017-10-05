@@ -8,18 +8,15 @@ namespace MegaDesk_3_ClaytonHarper
 {
     public class DeskQuote
     {
-        private string customerName;
-        private int rushOrder;
-        private DateTime quoteDate;
 
-        int basePrice = 200;
-        int pricePerInchSquared;
-        int pricePerDrawer = 50;
-        int oakPrice = 200;
-        int laminatePrice = 100;
-        int pinePrice = 50;
-        int rosewoodPrice = 300;
-        int veneerPrice = 125;
+        const int basePrice = 200;
+        const int pricePerInchSquared = 1;
+        const int pricePerDrawer = 50;
+        const int oakPrice = 200;
+        const int laminatePrice = 100;
+        const int pinePrice = 50;
+        const int rosewoodPrice = 300;
+        const int veneerPrice = 125;
         Desk desk;
 
 
@@ -35,23 +32,30 @@ namespace MegaDesk_3_ClaytonHarper
 
         }
 
+        public int DeskSize()
+        {
+            int size = desk.Width * desk.Depth;
+            return size;
+        }
+
         public decimal GetQuote()
         {
             int drawers = desk.Drawers;
             decimal totalPrice;
-            int size = desk.DeskSize();
+            int size = DeskSize();
             string material = desk.DeskMaterial;
             int materialPrice = 0;
-            int rushPrice = 0;
+            int rushPrice;
+            int sizePrice;
 
 
             if (size > 1000)
             {
-                pricePerInchSquared = (size - 1000) * 1;
+                sizePrice = (size - 1000) * pricePerInchSquared;
             }
             else
             {
-                pricePerInchSquared = 0;
+                sizePrice = 0;
             }
 
             switch(material)
@@ -124,7 +128,7 @@ namespace MegaDesk_3_ClaytonHarper
 
             
 
-            totalPrice = basePrice + pricePerInchSquared + (pricePerDrawer * drawers) + materialPrice + rushPrice;
+            totalPrice = basePrice + sizePrice + (pricePerDrawer * drawers) + materialPrice + rushPrice;
             
             return totalPrice;
         }
