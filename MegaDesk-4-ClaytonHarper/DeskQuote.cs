@@ -9,8 +9,7 @@ namespace MegaDesk_3_ClaytonHarper
 {
     public class DeskQuote
     {
-
-        string[] rushOrderPrices = File.ReadAllLines("rushOrderPrices.txt");
+       
 
 
         const int basePrice = 200;
@@ -36,6 +35,16 @@ namespace MegaDesk_3_ClaytonHarper
 
         public int GetRushOrder()
         {
+            if (!File.Exists("rushOrderPrices.txt"))
+            {
+                string prices = "60" + Environment.NewLine + "70" + Environment.NewLine + "80" + Environment.NewLine + "40" +
+                    Environment.NewLine + "50" + Environment.NewLine + "60" + Environment.NewLine + "30" + Environment.NewLine + "30" + Environment.NewLine + "40";
+                File.WriteAllText("rushOrderPrices.txt", prices);
+
+            }
+
+            string[] rushOrderPrices = File.ReadAllLines("rushOrderPrices.txt");
+
             string[,] newRushOrderPrices = new string[9, 2]
             {
                 {"3", rushOrderPrices[0] },
