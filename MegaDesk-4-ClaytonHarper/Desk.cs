@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_3_ClaytonHarper
 {
-    public class Desk
+    public struct Desk
     {
 
         public enum Material
         {
-            Laminate,
-            Oak,
-            Rosewood,
-            Veneer,
-            Pine,
+            Laminate = 100,
+            Oak = 200,
+            Rosewood = 300,
+            Veneer = 125,
+            Pine = 50
         };
 
         public string DeskMaterial { get; set; }

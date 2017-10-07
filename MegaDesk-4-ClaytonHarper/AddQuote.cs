@@ -51,6 +51,7 @@ namespace MegaDesk_3_ClaytonHarper
                 DeskQuote deskQuote = new DeskQuote(desk);
                 deskQuote.CustomerName = customerName.Text;
                 deskQuote.QuoteDate = DateTime.Now;
+                deskQuote.QuotePrice = deskQuote.GetQuote();
 
                 if (rushOrderCheck.Checked == true)
                 {

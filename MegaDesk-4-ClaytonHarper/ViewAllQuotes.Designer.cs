@@ -32,13 +32,6 @@
             this.mainMenuButton = new System.Windows.Forms.Button();
             this.displayError = new System.Windows.Forms.Label();
             this.displayQuotesTable = new System.Windows.Forms.DataGridView();
-            this.customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deskSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drawers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deskMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rushOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quoteDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.displayQuotesTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,64 +69,11 @@
             // 
             this.displayQuotesTable.AllowUserToAddRows = false;
             this.displayQuotesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.displayQuotesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerName,
-            this.deskSize,
-            this.drawers,
-            this.deskMaterial,
-            this.rushOrder,
-            this.totalPrice,
-            this.quoteDate});
             this.displayQuotesTable.Location = new System.Drawing.Point(12, 124);
             this.displayQuotesTable.Name = "displayQuotesTable";
             this.displayQuotesTable.ReadOnly = true;
             this.displayQuotesTable.Size = new System.Drawing.Size(810, 475);
             this.displayQuotesTable.TabIndex = 29;
-            // 
-            // customerName
-            // 
-            this.customerName.Frozen = true;
-            this.customerName.HeaderText = "Customer Name";
-            this.customerName.Name = "customerName";
-            this.customerName.ReadOnly = true;
-            this.customerName.Width = 125;
-            // 
-            // deskSize
-            // 
-            this.deskSize.HeaderText = "Desk Size";
-            this.deskSize.Name = "deskSize";
-            this.deskSize.ReadOnly = true;
-            // 
-            // drawers
-            // 
-            this.drawers.HeaderText = "Drawers";
-            this.drawers.Name = "drawers";
-            this.drawers.ReadOnly = true;
-            // 
-            // deskMaterial
-            // 
-            this.deskMaterial.HeaderText = "Material";
-            this.deskMaterial.Name = "deskMaterial";
-            this.deskMaterial.ReadOnly = true;
-            // 
-            // rushOrder
-            // 
-            this.rushOrder.HeaderText = "Delivery";
-            this.rushOrder.Name = "rushOrder";
-            this.rushOrder.ReadOnly = true;
-            // 
-            // totalPrice
-            // 
-            this.totalPrice.HeaderText = "Price";
-            this.totalPrice.Name = "totalPrice";
-            this.totalPrice.ReadOnly = true;
-            // 
-            // quoteDate
-            // 
-            this.quoteDate.HeaderText = "Date";
-            this.quoteDate.Name = "quoteDate";
-            this.quoteDate.ReadOnly = true;
-            this.quoteDate.Width = 150;
             // 
             // ViewAllQuotes
             // 
@@ -157,12 +97,5 @@
         private System.Windows.Forms.Button mainMenuButton;
         private System.Windows.Forms.Label displayError;
         private System.Windows.Forms.DataGridView displayQuotesTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deskSize;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drawers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deskMaterial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rushOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quoteDate;
     }
 }

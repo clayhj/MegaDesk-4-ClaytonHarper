@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +10,18 @@ namespace MegaDesk_3_ClaytonHarper
     public class DeskQuote
     {
 
+        string[] rushOrderPrices = File.ReadAllLines("rushOrderPrices.txt");
+
+
         const int basePrice = 200;
         const int pricePerInchSquared = 1;
         const int pricePerDrawer = 50;
-        const int oakPrice = 200;
-        const int laminatePrice = 100;
-        const int pinePrice = 50;
-        const int rosewoodPrice = 300;
-        const int veneerPrice = 125;
-        Desk desk;
+
+        
+
+
+
+        
 
 
         public string CustomerName { get; set; }
@@ -26,24 +30,95 @@ namespace MegaDesk_3_ClaytonHarper
 
         public DateTime QuoteDate { get; set; }
 
+        public decimal QuotePrice { get; set; }
+
+        public Desk Desk { get; set; }
+
+        public int GetRushOrder()
+        {
+            string[,] newRushOrderPrices = new string[9, 2]
+            {
+                {"3", rushOrderPrices[0] },
+                {"3", rushOrderPrices[1] },
+                {"3", rushOrderPrices[2] },
+                {"5", rushOrderPrices[3] },
+                {"5", rushOrderPrices[4] },
+                {"5", rushOrderPrices[5] },
+                {"7", rushOrderPrices[6] },
+                {"7", rushOrderPrices[7] },
+                {"7", rushOrderPrices[8] }
+            };
+
+            if (RushOrder == 3 && DeskSize() < 1000)
+            {
+                return Int32.Parse(newRushOrderPrices[0, 1]);
+
+            } else if (RushOrder == 3 && DeskSize() >= 1000 && DeskSize() <= 2000)
+            {
+                return Int32.Parse(newRushOrderPrices[1, 1]);
+
+            } else if (RushOrder == 3 && DeskSize() > 2000)
+            {
+                return Int32.Parse(newRushOrderPrices[2, 1]);
+            }
+            else if (RushOrder == 5 && DeskSize() < 1000)
+            {
+                return Int32.Parse(newRushOrderPrices[3, 1]);
+
+            }
+            else if (RushOrder == 5 && DeskSize() >= 1000 && DeskSize() <= 2000)
+            {
+                return Int32.Parse(newRushOrderPrices[4, 1]);
+
+            }
+            else if (RushOrder == 5 && DeskSize() > 2000)
+            {
+                return Int32.Parse(newRushOrderPrices[5, 1]);
+            }
+            else if (RushOrder == 7 && DeskSize() < 1000)
+            {
+                return Int32.Parse(newRushOrderPrices[6, 1]);
+
+            }
+            else if (RushOrder == 7 && DeskSize() >= 1000 && DeskSize() <= 2000)
+            {
+                return Int32.Parse(newRushOrderPrices[7, 1]);
+
+            }
+            else if (RushOrder == 7 && DeskSize() > 2000)
+            {
+                return Int32.Parse(newRushOrderPrices[8, 1]);
+            }
+            else
+            {
+                return 0;
+            }
+
+
+
+
+
+
+        }
+
         public DeskQuote(Desk desk)
         {
-            this.desk = desk;
+            this.Desk = desk;
 
         }
 
         public int DeskSize()
         {
-            int size = desk.Width * desk.Depth;
+            int size = Desk.Width * Desk.Depth;
             return size;
         }
 
         public decimal GetQuote()
         {
-            int drawers = desk.Drawers;
+            int drawers = Desk.Drawers;
             decimal totalPrice;
             int size = DeskSize();
-            string material = desk.DeskMaterial;
+            string material = Desk.DeskMaterial;
             int materialPrice = 0;
             int rushPrice;
             int sizePrice;
@@ -61,76 +136,31 @@ namespace MegaDesk_3_ClaytonHarper
             switch(material)
             {
                 case "Laminate":
-                    materialPrice = laminatePrice;
+                    materialPrice = (int)Desk.Material.Laminate;
                     break;
                 case "Oak":
-                    materialPrice = oakPrice;
+                    materialPrice = (int)Desk.Material.Oak;
                     break;
                 case "Rosewood":
-                    materialPrice = rosewoodPrice;
+                    materialPrice = (int)Desk.Material.Rosewood;
                     break;
                 case "Veneer":
-                    materialPrice = veneerPrice;
+                    materialPrice = (int)Desk.Material.Veneer;
                     break;
                 case "Pine":
-                    materialPrice = pinePrice;
+                    materialPrice = (int)Desk.Material.Pine;
                     break;
             }
 
-            switch(RushOrder)
-            {
-                case 3:
-                    if (size >= 1000 || size <= 2000)
-                    {
-                        rushPrice = 70;
-                    }
-                    else if (size > 2000)
-                    {
-                        rushPrice = 80;
-                    }
-                    else
-                    {
-                        rushPrice = 60;
-                    }
-                    break;
-                case 5:
-                    if (size >= 1000 || size <= 2000)
-                    {
-                        rushPrice = 50;
-                    }
-                    else if (size > 2000)
-                    {
-                        rushPrice = 60;
-                    }
-                    else
-                    {
-                        rushPrice = 40;
-                    }
-                    break;
-                case 7:
-                    if (size >= 1000 || size <= 2000)
-                    {
-                        rushPrice = 35;
-                    }
-                    else if (size > 2000)
-                    {
-                        rushPrice = 40;
-                    }
-                    else
-                    {
-                        rushPrice = 30;
-                    }
-                    break;
-                default:
-                    rushPrice = 0;
-                    break;
-            }
+            rushPrice = GetRushOrder();
 
             
 
             totalPrice = basePrice + sizePrice + (pricePerDrawer * drawers) + materialPrice + rushPrice;
             
-            return totalPrice;
+            return  totalPrice;
         }
+
+
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace MegaDesk_3_ClaytonHarper
 {
@@ -16,36 +17,48 @@ namespace MegaDesk_3_ClaytonHarper
         public SearchQuotes()
         {
             InitializeComponent();
-            materialSearch.DataSource = Enum.GetValues(typeof(Desk.Material));
+
+            var materials = new List<Desk.Material>();
+
+            materials = Enum.GetValues(typeof(Desk.Material))
+                .Cast<Desk.Material>()
+                .ToList();
+
+            materialSearch.DataSource = materials;
+
+           
         }
 
         private void searchQuotesButton_Click(object sender, EventArgs e)
         {
 
-            string path = "quotes.txt";
-
-            searchQuotesTable.Rows.Clear();
+            string path = "quotes.json";
 
             try
             {
+
                 using (StreamReader sr = new StreamReader(path))
                 {
-                    while (!sr.EndOfStream)
-                    {
-                        string[] quotes = sr.ReadLine().Split(',');
-                        if (quotes.Contains(materialSearch.Text))
-                        {
-                            searchQuotesTable.Rows.Add(quotes[0], quotes[1], quotes[2], quotes[3], quotes[4], quotes[5], quotes[6]);
-                            searchError.Visible = false;
-                        }
-                        else
-                        {
-                            searchError.Visible = true;
-                            searchError.Text = "No Matches";
-                        }
+                    string readQuotes = sr.ReadToEnd();
 
-                    }
+                    var quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(readQuotes);
+
+
+
+                searchQuotesTable.DataSource = quotes.Where(s => s.Desk.DeskMaterial == materialSearch.SelectedValue.ToString() )
+                        .Select(d => new
+                    {
+                        Date = d.QuoteDate,
+                        Customer = d.CustomerName,
+                        Depth = d.Desk.Depth,
+                        Width = d.Desk.Width,
+                        Drawers = d.Desk.Drawers,
+                        SurfaceMaterial = d.Desk.DeskMaterial,
+                        DeliveryType = d.RushOrder,
+                        QuoteAmount = d.QuotePrice
+                    }).ToList();
                 }
+
             }
             catch (FileNotFoundException)
             {
